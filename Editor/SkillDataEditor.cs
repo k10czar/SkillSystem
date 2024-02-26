@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using K10.EditorGUIExtention;
 using UnityEditor;
 using UnityEngine;
@@ -28,20 +29,30 @@ public class SkillDataEditor : Editor
         }
         serializedObject.ApplyModifiedProperties();
 
-        DrawDefaultInspector();
+        // DrawDefaultInspector();
     }
 
     public void DrawEvent( SerializedProperty evProp )
     {
         var triggerProp = evProp.FindPropertyRelative( "_trigger" );
-        var blocks = evProp.FindPropertyRelative( "_executionBlocks" );
-        EditorGUILayout.PropertyField( evProp );
         
-        for( int i = 0; i < blocks.arraySize; i++ )
-        {
-            var blockProp = blocks.GetArrayElementAtIndex( i );
-            DrawBlock( blockProp );
-        }
+        EditorGUILayout.BeginVertical( EditorStyles.helpBox );
+        var boxColor = OverridingColorAttribute.TryGetColorFrom( triggerProp.managedReferenceValue, Colors.Gold );
+        GuiColorManager.New( boxColor );
+        EditorGUILayout.BeginVertical( EditorStyles.helpBox );
+        GuiColorManager.Revert();
+        triggerProp.DrawSerializedReferenceLayout<ISkillTriggerData>();
+        EditorGUILayout.EndVertical();
+        
+        var blocks = evProp.FindPropertyRelative( "_executionBlocks" );
+        EditorGUILayout.PropertyField( blocks );
+        
+        // for( int i = 0; i < blocks.arraySize; i++ )
+        // {
+        //     var blockProp = blocks.GetArrayElementAtIndex( i );
+        //     DrawBlock( blockProp );
+        // }
+        EditorGUILayout.EndVertical();
     }
 
     private void DrawBlock(SerializedProperty blockProp)

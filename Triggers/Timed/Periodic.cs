@@ -3,11 +3,12 @@ using System.Collections;
 
 namespace SkillTriggers
 {
+    [OverridingIcon("clock")]
     [ListingPath("Timed/Periodic")]
     public class Periodic : ISkillTriggerData
 	{
 		[SerializeField] float _interval;
-		[SerializeField] bool _firstTickInstantaneos;
+		[SerializeField] bool _triggerOnFirstTick;
 
         public IEventRegister BuildTrigger( SkillInstance skill )
         {
@@ -20,7 +21,7 @@ namespace SkillTriggers
         {
 			var wait = new WaitForSeconds( _interval );
 			yield return null;
-			if( _firstTickInstantaneos ) trigger.Trigger();
+			if( _triggerOnFirstTick ) trigger.Trigger();
 			while( skill.IsExecuting.Value )
 			{
 				yield return wait;

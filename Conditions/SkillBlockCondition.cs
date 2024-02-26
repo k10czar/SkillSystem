@@ -3,6 +3,12 @@ public interface ISkillBlockCondition
 	bool QueryCondition( SkillInstance skill );
 }
 
+public static class SkillBlockConditionUtils
+{
+    static TypeListData<ISkillBlockCondition> _listingData = null;
+    public static TypeListData<ISkillBlockCondition> ListingData => _listingData ??= new TypeListData<ISkillBlockCondition>();
+}
+
 public interface ISkillBlockCondition<T> where T : IKomponent
 {
 	bool QueryCondition( T komp );

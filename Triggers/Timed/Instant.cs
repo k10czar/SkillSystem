@@ -1,5 +1,6 @@
 namespace SkillTriggers
 {
+    [OverridingIcon("actions")]
     [ListingPath("Instant")]
     public class Instant : ISkillTriggerData
     {

@@ -16,13 +16,4 @@ namespace SkillConditions
 			return false;
 		}
 	}
-
-	// [ListingPath("Movement/IsGrounded")]
-	// public class IsGrounded : ISkillBlockCondition<IMovementObserver>
-	// {
-	// 	public bool QueryCondition( IMovementObserver movObserver )
-	// 	{
-	// 		return movObserver.IsGrounded.Value;
-	// 	}
-	// }
 }
