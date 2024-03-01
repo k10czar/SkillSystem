@@ -41,7 +41,7 @@ public class SkillExecutionBlockDataPropertyDrawer : PropertyDrawer
 
         list.drawElementCallback += ( Rect rect, int index, bool isActive, bool isFocused ) => {
             var element = property.GetArrayElementAtIndex( index );
-            element.DrawSerializedReference<ISkillEventData>( rect );
+            element.DrawSerializedReference( rect );
         };
 
         return list;
@@ -53,7 +53,7 @@ public class SkillExecutionBlockDataPropertyDrawer : PropertyDrawer
         var fxs = property.FindPropertyRelative( "_effects" );
 
         var conditionHeight = GetCachedHeight( conditionProp );
-        conditionProp.DrawSerializedReference<ISkillBlockCondition>( rect.RequestTop( conditionHeight ) );
+        conditionProp.DrawSerializedReference( rect.RequestTop( conditionHeight ) );
         rect = rect.CutTop( conditionHeight );
         
         var list = GetReorderableList( fxs );

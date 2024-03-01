@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SkillEventData
 {
-	[SerializeReference] ISkillTriggerData _trigger;
+	[ExtendedSerializeReference,SerializeReference] ISkillTriggerData _trigger;
 	[SerializeField] SkillExecutionBlockData[] _executionBlocks;
 	
 	public void Execute( SkillInstance skill )

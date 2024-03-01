@@ -41,7 +41,7 @@ public class SkillDataEditor : Editor
         GuiColorManager.New( boxColor );
         EditorGUILayout.BeginVertical( EditorStyles.helpBox );
         GuiColorManager.Revert();
-        triggerProp.DrawSerializedReferenceLayout<ISkillTriggerData>();
+        triggerProp.DrawSerializedReferenceLayout();
         EditorGUILayout.EndVertical();
         
         var blocks = evProp.FindPropertyRelative( "_executionBlocks" );
