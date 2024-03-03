@@ -5,8 +5,8 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SkillExecutionBlockData
 {
-	[ExtendedSerializeReference,SerializeReference] ISkillBlockCondition _condition;
-	[ExtendedSerializeReference,SerializeReference] ISkillEventData[] _effects = null;
+	[ExtendedDrawer,SerializeReference] ISkillBlockCondition _condition;
+	[ExtendedDrawer,SerializeReference] ISkillEventData[] _effects = null;
 
 	public bool Execute( SkillInstance skill )
 	{
