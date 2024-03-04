@@ -3,7 +3,6 @@ using System.Collections;
 
 namespace SkillTriggers
 {
-    [OverridingIcon("clock")]
     [ListingPath("Timed/Periodic")]
     public class Periodic : ISkillTriggerData
 	{
