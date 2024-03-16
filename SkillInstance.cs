@@ -176,7 +176,7 @@ public class SkillInstance : System.IDisposable
 	// 		pendingTriggers.Add(eventData, new SkillTriggerInstance(this, eventData));
 	// }
 
-	private static readonly YieldInstruction WAIT_END_FRAME = new WaitForEndOfFrame();
+	[ConstLike] private static readonly YieldInstruction WAIT_END_FRAME = new WaitForEndOfFrame();
 
 	private IEnumerator Start()
 	{
