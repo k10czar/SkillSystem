@@ -37,10 +37,10 @@ public class SkillDataEditor : Editor
         var triggerProp = evProp.FindPropertyRelative( "_trigger" );
         
         EditorGUILayout.BeginVertical( EditorStyles.helpBox );
-        var boxColor = OverridingColorAttribute.TryGetColorFrom( triggerProp.managedReferenceValue, Colors.Gold );
-        GuiColorManager.New( boxColor );
+        // var boxColor = OverridingColorAttribute.TryGetColorFrom( triggerProp.managedReferenceValue, Colors.Gold );
+        // GuiColorManager.New( boxColor );
         EditorGUILayout.BeginVertical( EditorStyles.helpBox );
-        GuiColorManager.Revert();
+        // GuiColorManager.Revert();
         triggerProp.DrawSerializedReferenceLayout();
         EditorGUILayout.EndVertical();
         
